@@ -1,208 +1,182 @@
+
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
+    
+<meta charset="utf-8" >
 
 <title>新媒体艺术 | 游侠儿</title>
 <meta name="description" content="一个在数字海洋漂泊的人，专注于数字媒体空间和沉浸，身临其境和触觉感知等多重体验形式，定制观众的情感视听环境，因为专注所以精致。参与涉及博物馆，展览展示，发布会，剧际，主题公园，赛事等国内国际项目。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="http://zwmin.com/favicon.ico?v=1555246058722">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="shortcut icon" href="http://zwmin.com/favicon.ico?v=1555246311584">
 <link rel="stylesheet" href="http://zwmin.com/styles/main.css">
 
 
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
   </head>
   <body>
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="http://zwmin.com">游侠儿</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
-        
-          <li>
-            
-              <a href="/" class="menu">
-                首页
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/archives" class="menu">
-                归档
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/tags" class="menu">
-                标签
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/post/about" class="menu">
-                关于
-              </a>
-            
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <h2 class="current-tag">标签: 新媒体艺术</h2>
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="http://zwmin.com/post/liu-ti-he-tuo-wei-li-zi-jie-he">流体和拖尾粒子结合</a>
-    </h2>
-    <p class="article-meta">
-      2019-01-12
-      
-        <a href="http://zwmin.com/tag/xinmeiti" class="badge warning">
-          新媒体
-        </a>
-      
-        <a href="http://zwmin.com/tag/NewMadioArt" class="badge success">
-          新媒体艺术
-        </a>
-      
-        <a href="http://zwmin.com/tag/particle" class="badge secondary">
-          粒子
-        </a>
-      
-        <a href="http://zwmin.com/tag/unity" class="badge success">
-          Unity
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>交互流体与拖尾粒子</p>
-
-    </p>
-    <div class="row">
-      <a href="http://zwmin.com/post/liu-ti-he-tuo-wei-li-zi-jie-he" class="readmore-link">
-        <button>
-          Read More
-        </button>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="http://zwmin.com">
+        <img class="avatar" src="http://zwmin.com/images/avatar.png?v=1555246311584" alt="" width="32px" height="32px">
+      </a>
+      <a href="http://zwmin.com">
+        <h1 class="site-title">游侠儿</h1>
       </a>
     </div>
-  </article>
-
-
-        </div>
-        <div class="row flex-edges">
-  
-  
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
 </div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+
+        <div class="current-tag-container">
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> 新媒体艺术
+          </h2> 
+        </div>
+
+        
+<section class="post-item">
+    <div class="content">
+      <a href="http://zwmin.com/post/liu-ti-he-tuo-wei-li-zi-jie-he">
+        <h2 class="post-title">流体和拖尾粒子结合</h2>
+      </a>
+      <div class="post-abstract">
+        <p>交互流体与拖尾粒子</p>
 
       </div>
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="http://zwmin.com/images/avatar.png?v=1555246058722" class="no-responsive avatar">
-    <div class="text-muted">一个在数字海洋漂泊的人，专注于数字媒体空间和沉浸，身临其境和触觉感知等多重体验形式，定制观众的情感视听环境，因为专注所以精致。参与涉及博物馆，展览展示，发布会，剧际，主题公园，赛事等国内国际项目。</div>
-    <div class="social-container">
-      
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-01-12</span>
         
-      
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="http://zwmin.com/tag/xinmeiti">
+                新媒体
+                
+                  ，
+                
+              </a>
+            
+              <a href="http://zwmin.com/tag/NewMadioArt">
+                新媒体艺术
+                
+                  ，
+                
+              </a>
+            
+              <a href="http://zwmin.com/tag/particle">
+                粒子
+                
+                  ，
+                
+              </a>
+            
+              <a href="http://zwmin.com/tag/unity">
+                Unity
+                
+              </a>
+            
+          </span>
         
-      
-        
-      
-        
-      
-        
-      
+      </div>
     </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="http://zwmin.com/post/about">关于</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="http://zwmin.com/post/liu-ti-he-tuo-wei-li-zi-jie-he">流体和拖尾粒子结合</a>
-            </li>
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="http://zwmin.com/tag/xinmeiti" class="badge warning">
-          新媒体
-        </a>
-      
-        <a href="http://zwmin.com/tag/NewMadioArt" class="badge success">
-          新媒体艺术
-        </a>
-      
-        <a href="http://zwmin.com/tag/particle" class="badge secondary">
-          粒子
-        </a>
-      
-        <a href="http://zwmin.com/tag/unity" class="badge success">
-          Unity
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-    Powered by Hve Notes
-  </div>
+    
+      <a href="http://zwmin.com/post/liu-ti-he-tuo-wei-li-zi-jie-he">
+        <div class="feature-container" style="background-image: url('http://zwmin.com/post-images/liu-ti-he-tuo-wei-li-zi-jie-he.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+
+<div class="pagination-container">
+  
+  
 </div>
 
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">一个在数字海洋漂泊的人，专注于数字媒体空间和沉浸，身临其境和触觉感知等多重体验形式，定制观众的情感视听环境，因为专注所以精致。参与涉及博物馆，展览展示，发布会，剧际，主题公园，赛事等国内国际项目。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by Hve Notes
+</div>
+
+
     </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-<script type="application/javascript">
-
-AOS.init();
+    <script type="application/javascript">
 
 hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 
