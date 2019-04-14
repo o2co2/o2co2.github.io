@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>粒子 | 游侠儿</title>
+<title>project | 游侠儿</title>
 <meta name="description" content="一个在数字海洋漂泊的人，专注于数字媒体空间和沉浸，身临其境和触觉感知等多重体验形式，定制观众的情感视听环境，因为专注所以精致。参与涉及博物馆，展览展示，发布会，剧际，主题公园，赛事等国内国际项目。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -12,6 +12,12 @@
 <link rel="shortcut icon" href="http://zwmin.com/favicon.ico?v=1555248255691">
 <link rel="stylesheet" href="http://zwmin.com/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -105,34 +111,26 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 粒子</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="http://zwmin.com/post/liu-ti-he-tuo-wei-li-zi-jie-he">
-                  <h2 class="post-title">流体和拖尾粒子结合</h2>
-                </a>
-                <div class="post-date">
-                  2019-01-12
-                </div>
-                <div class="post-abstract">
-                  <p>交互流体与拖尾粒子</p>
+          <div class="post-detail">
+            <h2 class="post-title">project</h2>
+            <div class="post-date">2019-04-14</div>
+            
+            <div class="post-content">
+              <p>项目页面 等待更新</p>
 
-                </div>
-              </div>
-              
-                <a class="right" href="http://zwmin.com/post/liu-ti-he-tuo-wei-li-zi-jie-he">
-                  <div class="feature-container" style="background-image: url('http://zwmin.com/post-images/liu-ti-he-tuo-wei-li-zi-jie-he.jpg')">
-                  </div>
-                </a>
-              
-            </article>
-          
+            </div>
+            
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
 
         </div>
       </div>
@@ -154,6 +152,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '028dab13d1091b0f558c',
+        clientSecret: '915051f60890b05b9708a0d4416312121de48c1a',
+        repo: 'o2co2.github.io',
+        owner: 'o2co2',
+        admin: ['o2co2'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
