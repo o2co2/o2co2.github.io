@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://zwmin.com</id>
+    <title>游侠儿</title>
+    <updated>2019-05-28T15:09:37.743Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="http://zwmin.com"/>
+    <link rel="self" href="http://zwmin.com/atom.xml"/>
+    <subtitle>一个在数字海洋漂泊的人，专注于数字媒体空间和沉浸，身临其境和触觉感知等多重体验形式，定制观众的情感视听环境，因为专注所以精致。参与涉及博物馆，展览展示，发布会，剧际，主题公园，赛事等国内国际项目。</subtitle>
+    <logo>http://zwmin.com/images/avatar.png</logo>
+    <icon>http://zwmin.com/favicon.ico</icon>
+    <rights>All rights reserved 2019, 游侠儿</rights>
+    <entry>
+        <title type="html"><![CDATA[流与流方向可视化]]></title>
+        <id>http://zwmin.com/post/liu-yu-liu-fang-xiang-ke-shi-hua</id>
+        <link href="http://zwmin.com/post/liu-yu-liu-fang-xiang-ke-shi-hua">
+        </link>
+        <updated>2019-04-23T14:15:37.000Z</updated>
+        <summary type="html"><![CDATA[<p>流与流方向可视化</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>流与流方向可视化</p>
+<!-- more -->
+<iframe  width="640" height="480" frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=f0863uywufc" allowFullScreen="true"></iframe>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[流与2D毛发]]></title>
+        <id>http://zwmin.com/post/liu-yu-2d-mao-fa</id>
+        <link href="http://zwmin.com/post/liu-yu-2d-mao-fa">
+        </link>
+        <updated>2019-04-22T14:54:12.000Z</updated>
+        <summary type="html"><![CDATA[<p>流与2D毛发</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>流与2D毛发</p>
+<!-- more -->
+<iframe width="640" height="480" frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=w0863s0pgq9" allowFullScreen="true"></iframe>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[多视频同步播放器]]></title>
+        <id>http://zwmin.com/post/duo-shi-pin-tong-bu-bo-fang-qi</id>
+        <link href="http://zwmin.com/post/duo-shi-pin-tong-bu-bo-fang-qi">
+        </link>
+        <updated>2019-04-16T15:12:06.000Z</updated>
+        <summary type="html"><![CDATA[<p>多视频同步播放器</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>多视频同步播放器</p>
+<!-- more -->
+<iframe width="640" height="480" frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=u0861z1nfln" allowFullScreen="true"></iframe>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[流体和拖尾粒子结合]]></title>
+        <id>http://zwmin.com/post/liu-ti-he-tuo-wei-li-zi-jie-he</id>
+        <link href="http://zwmin.com/post/liu-ti-he-tuo-wei-li-zi-jie-he">
+        </link>
+        <updated>2019-01-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>交互流体与拖尾粒子</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>交互流体与拖尾粒子</p>
+<!-- more -->
+<iframe  width="640" height="480"  frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=t0860ds04o6" allowFullScreen="true"></iframe>]]></content>
+    </entry>
+</feed>
