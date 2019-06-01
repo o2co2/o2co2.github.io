@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>流与流方向可视化 | 游侠儿</title>
+<title>如何把中文保存到ASCII码 | 游侠儿</title>
 <meta name="description" content="一个在数字海洋漂泊的人，专注于数字媒体空间和沉浸，身临其境和触觉感知等多重体验形式，定制观众的情感视听环境，因为专注所以精致。参与涉及博物馆，展览展示，发布会，剧际，主题公园，赛事等国内国际项目。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -113,39 +113,77 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">流与流方向可视化</h2>
-            <div class="post-date">2019-04-23</div>
+            <h2 class="post-title">如何把中文保存到ASCII码</h2>
+            <div class="post-date">2019-06-02</div>
             
-              <div class="feature-container" style="background-image: url('https://gerenwangzhan-1253619591.cos.ap-guangzhou.myqcloud.com/%E6%96%87%E7%AB%A0%E5%B0%81%E9%9D%A2/%E6%B5%81%E4%B8%8E%E6%B5%81%E6%96%B9%E5%90%91%E5%8F%AF%E8%A7%86%E5%8C%96.png')">
+              <div class="feature-container" style="background-image: url('https://gerenwangzhan-1253619591.cos.ap-guangzhou.myqcloud.com/2019-6/unity.jpg')">
               </div>
             
             <div class="post-content">
-              <p>流与流方向可视化</p>
+              <h2 id="如何把中文保存到ascii码">如何把中文保存到ASCII码</h2>
+<h4 id="因为osc在发送字符串的时候会把字符串转为ascii码发送这样在字符串中有中文的时候osc接收到字符中文从ascii码转为utf-8的时候就会出现乱码">因为OSC在发送字符串的时候，会把字符串转为ASCII码发送，这样在字符串中有中文的时候，OSC接收到字符中文从ASCII码转为UTF-8的时候就会出现乱码。</h4>
+<h4 id="需要解决的问题是如何把中文的字符串转为ascii码-并且保留中文的字节码">需要解决的问题是，如何把中文的字符串转为ASCII码。并且保留中文的字节码？</h4>
+<p>因为ASCII码是使用单字节保存的，而UTF-8是使用双字节保存，那么把中文字符转成字节保存ASCII码的字符串中，转换的时候从ASCII码的字符串中取出双字节转成一个字符就可以了。</p>
 <!-- more -->
-<iframe  width="640" height="480" frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=f0863uywufc" allowFullScreen="true"></iframe>
+<pre><code>/// &lt;summary&gt;
+ /// 含中文字符串转ASCII
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;str&quot;&gt;&lt;/param&gt;
+ /// &lt;returns&gt;&lt;/returns&gt;
+public static string Str2ASCII(System.String str)
+{
+    try
+    {
+        //这里我们将采用2字节一个汉字的方法来取出汉字的16进制码
+        byte[] textbuf = System.Text.Encoding.Default.GetBytes(str);
+        //用来存储转换过后的ASCII码
+        string textAscii = string.Empty;
+
+        for (int i = 0; i &lt; textbuf.Length; i++)
+        {
+            textAscii += textbuf[i].ToString(&quot;X&quot;);
+        }
+        return textAscii;
+    }
+    catch (System.Exception ex)
+    {
+        Debug.Log(&quot;含中文字符串转ASCII异常&quot; + ex.Message);
+    }
+    return &quot;&quot;;
+}
+</code></pre>
+<pre><code> /// &lt;summary&gt;
+/// ASCII转含中文字符串
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;textAscii&quot;&gt;ASCII字符串&lt;/param&gt;
+/// &lt;returns&gt;&lt;/returns&gt;
+public static string ASCII2Str(string textAscii)
+{
+    try
+    {
+        int k = 0;//字节移动偏移量
+        byte[] buffer = new byte[textAscii.Length / 2];//存储变量的字节
+        for (int i = 0; i &lt; textAscii.Length / 2; i++)
+        {
+            //每两位合并成为一个字节
+            buffer[i] = byte.Parse(textAscii.Substring(k, 2), 
+System.Globalization.NumberStyles.HexNumber);
+            k = k + 2;
+        }
+        //将字节转化成汉字
+        return System.Text.Encoding.Default.GetString(buffer);
+    }
+    catch (System.Exception ex)
+    {
+        Debug.Log(&quot;ASCII转含中文字符串异常&quot; + ex.Message);
+    }
+    return &quot;&quot;;
+}
+</code></pre>
+
             </div>
             
               <div class="tag-container">
-                
-                  <a href="http://zwmin.com/tag/X1ac_E0YF" class="tag">
-                    GLSL
-                  </a>
-                
-                  <a href="http://zwmin.com/tag/z1PrvPlNv" class="tag">
-                    OpenGL
-                  </a>
-                
-                  <a href="http://zwmin.com/tag/xinmeiti" class="tag">
-                    新媒体
-                  </a>
-                
-                  <a href="http://zwmin.com/tag/NewMadioArt" class="tag">
-                    新媒体艺术
-                  </a>
-                
-                  <a href="http://zwmin.com/tag/particle" class="tag">
-                    粒子
-                  </a>
                 
                   <a href="http://zwmin.com/tag/unity" class="tag">
                     Unity
@@ -156,9 +194,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="http://zwmin.com/post/liu-yu-2d-mao-fa">
+                <a href="http://zwmin.com/post/liu-yu-liu-fang-xiang-ke-shi-hua">
                   <h3 class="post-title">
-                    流与2D毛发
+                    流与流方向可视化
                   </h3>
                 </a>
               </div>

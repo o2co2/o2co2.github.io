@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://zwmin.com</id>
     <title>游侠儿</title>
-    <updated>2019-05-28T15:09:37.743Z</updated>
+    <updated>2019-06-01T17:53:41.047Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://zwmin.com"/>
     <link rel="self" href="http://zwmin.com/atom.xml"/>
@@ -10,6 +10,79 @@
     <logo>http://zwmin.com/images/avatar.png</logo>
     <icon>http://zwmin.com/favicon.ico</icon>
     <rights>All rights reserved 2019, 游侠儿</rights>
+    <entry>
+        <title type="html"><![CDATA[如何把中文保存到ASCII码]]></title>
+        <id>http://zwmin.com/post/ru-he-ba-zhong-wen-bao-cun-dao-ascii-ma</id>
+        <link href="http://zwmin.com/post/ru-he-ba-zhong-wen-bao-cun-dao-ascii-ma">
+        </link>
+        <updated>2019-06-01T17:49:18.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="如何把中文保存到ascii码">如何把中文保存到ASCII码</h2>
+<h4 id="因为osc在发送字符串的时候会把字符串转为ascii码发送这样在字符串中有中文的时候osc接收到字符中文从ascii码转为utf-8的时候就会出现乱码">因为OSC在发送字符串的时候，会把字符串转为ASCII码发送，这样在字符串中有中文的时候，OSC接收到字符中文从ASCII码转为UTF-8的时候就会出现乱码。</h4>
+<h4 id="需要解决的问题是如何把中文的字符串转为ascii码-并且保留中文的字节码">需要解决的问题是，如何把中文的字符串转为ASCII码。并且保留中文的字节码？</h4>
+<p>因为ASCII码是使用单字节保存的，而UTF-8是使用双字节保存，那么把中文字符转成字节保存ASCII码的字符串中，转换的时候从ASCII码的字符串中取出双字节转成一个字符就可以了。</p>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="如何把中文保存到ascii码">如何把中文保存到ASCII码</h2>
+<h4 id="因为osc在发送字符串的时候会把字符串转为ascii码发送这样在字符串中有中文的时候osc接收到字符中文从ascii码转为utf-8的时候就会出现乱码">因为OSC在发送字符串的时候，会把字符串转为ASCII码发送，这样在字符串中有中文的时候，OSC接收到字符中文从ASCII码转为UTF-8的时候就会出现乱码。</h4>
+<h4 id="需要解决的问题是如何把中文的字符串转为ascii码-并且保留中文的字节码">需要解决的问题是，如何把中文的字符串转为ASCII码。并且保留中文的字节码？</h4>
+<p>因为ASCII码是使用单字节保存的，而UTF-8是使用双字节保存，那么把中文字符转成字节保存ASCII码的字符串中，转换的时候从ASCII码的字符串中取出双字节转成一个字符就可以了。</p>
+<!-- more -->
+<pre><code>/// &lt;summary&gt;
+ /// 含中文字符串转ASCII
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;str&quot;&gt;&lt;/param&gt;
+ /// &lt;returns&gt;&lt;/returns&gt;
+public static string Str2ASCII(System.String str)
+{
+    try
+    {
+        //这里我们将采用2字节一个汉字的方法来取出汉字的16进制码
+        byte[] textbuf = System.Text.Encoding.Default.GetBytes(str);
+        //用来存储转换过后的ASCII码
+        string textAscii = string.Empty;
+
+        for (int i = 0; i &lt; textbuf.Length; i++)
+        {
+            textAscii += textbuf[i].ToString(&quot;X&quot;);
+        }
+        return textAscii;
+    }
+    catch (System.Exception ex)
+    {
+        Debug.Log(&quot;含中文字符串转ASCII异常&quot; + ex.Message);
+    }
+    return &quot;&quot;;
+}
+</code></pre>
+<pre><code> /// &lt;summary&gt;
+/// ASCII转含中文字符串
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;textAscii&quot;&gt;ASCII字符串&lt;/param&gt;
+/// &lt;returns&gt;&lt;/returns&gt;
+public static string ASCII2Str(string textAscii)
+{
+    try
+    {
+        int k = 0;//字节移动偏移量
+        byte[] buffer = new byte[textAscii.Length / 2];//存储变量的字节
+        for (int i = 0; i &lt; textAscii.Length / 2; i++)
+        {
+            //每两位合并成为一个字节
+            buffer[i] = byte.Parse(textAscii.Substring(k, 2), 
+System.Globalization.NumberStyles.HexNumber);
+            k = k + 2;
+        }
+        //将字节转化成汉字
+        return System.Text.Encoding.Default.GetString(buffer);
+    }
+    catch (System.Exception ex)
+    {
+        Debug.Log(&quot;ASCII转含中文字符串异常&quot; + ex.Message);
+    }
+    return &quot;&quot;;
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[流与流方向可视化]]></title>
         <id>http://zwmin.com/post/liu-yu-liu-fang-xiang-ke-shi-hua</id>

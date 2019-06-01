@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://zwmin.com/favicon.ico?v=1559056151022">
+<link rel="shortcut icon" href="http://zwmin.com/favicon.ico?v=1559411614943">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://zwmin.com/styles/main.css">
 
@@ -39,7 +39,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="http://zwmin.com">
-        <img src="http://zwmin.com/images/avatar.png?v=1559056151022" class="site-logo">
+        <img src="http://zwmin.com/images/avatar.png?v=1559411614943" class="site-logo">
         <h1 class="site-title">游侠儿</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -106,6 +106,30 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="http://zwmin.com/post/ru-he-ba-zhong-wen-bao-cun-dao-ascii-ma">
+                  <h2 class="post-title">如何把中文保存到ASCII码</h2>
+                </a>
+                <div class="post-date">
+                  2019-06-02
+                </div>
+                <div class="post-abstract">
+                  <h2 id="如何把中文保存到ascii码">如何把中文保存到ASCII码</h2>
+<h4 id="因为osc在发送字符串的时候会把字符串转为ascii码发送这样在字符串中有中文的时候osc接收到字符中文从ascii码转为utf-8的时候就会出现乱码">因为OSC在发送字符串的时候，会把字符串转为ASCII码发送，这样在字符串中有中文的时候，OSC接收到字符中文从ASCII码转为UTF-8的时候就会出现乱码。</h4>
+<h4 id="需要解决的问题是如何把中文的字符串转为ascii码-并且保留中文的字节码">需要解决的问题是，如何把中文的字符串转为ASCII码。并且保留中文的字节码？</h4>
+<p>因为ASCII码是使用单字节保存的，而UTF-8是使用双字节保存，那么把中文字符转成字节保存ASCII码的字符串中，转换的时候从ASCII码的字符串中取出双字节转成一个字符就可以了。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="http://zwmin.com/post/ru-he-ba-zhong-wen-bao-cun-dao-ascii-ma">
+                  <div class="feature-container" style="background-image: url('https://gerenwangzhan-1253619591.cos.ap-guangzhou.myqcloud.com/2019-6/unity.jpg')">
+                  </div>
+                </a>
+              
+            </article>
           
             <article class="post-item">
               <div class="left">
