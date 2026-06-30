@@ -605,13 +605,36 @@ h3 {
 }
 
 .archive-media-pair {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 78px;
+  display: flex;
+  align-items: center;
   gap: 6px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scrollbar-color: rgba(40, 240, 199, 0.48) rgba(255, 255, 255, 0.06);
+  scrollbar-width: thin;
 }
 
 .archive-media-pair img {
-  height: 100%;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+  height: clamp(126px, 13vw, 170px);
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.archive-media-pair::-webkit-scrollbar {
+  height: 7px;
+}
+
+.archive-media-pair::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.archive-media-pair::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(40, 240, 199, 0.48);
 }
 
 .archive-media.is-scroll-media {
@@ -661,13 +684,10 @@ h3 {
 
 .archive-media-pair.is-strip-media {
   align-items: center;
-  grid-template-columns: minmax(0, 1fr) 96px;
 }
 
 .archive-media-pair.is-strip-media img:not(:first-child) {
-  height: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .archive-media.is-scroll-media::-webkit-scrollbar {
@@ -987,10 +1007,6 @@ h3 {
   .project-archive-heading {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .archive-media-pair {
-    grid-template-columns: minmax(0, 1fr) 96px;
   }
 
   .archive-project-card,
