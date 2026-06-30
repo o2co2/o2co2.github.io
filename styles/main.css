@@ -576,10 +576,16 @@ h3 {
 }
 
 .archive-project-card {
+  grid-column: span 2;
   min-height: 100%;
 }
 
+.archive-project-card.is-strip-card {
+  grid-column: span 2;
+}
+
 .archive-media {
+  position: relative;
   padding: 6px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background:
@@ -606,6 +612,75 @@ h3 {
 
 .archive-media-pair img {
   height: 100%;
+}
+
+.archive-media.is-scroll-media {
+  max-height: clamp(220px, 24vw, 330px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(40, 240, 199, 0.48) rgba(255, 255, 255, 0.06);
+  scrollbar-width: thin;
+}
+
+.archive-media.is-scroll-media::before,
+.archive-media.is-scroll-media::after {
+  position: sticky;
+  z-index: 1;
+  display: block;
+  height: 22px;
+  margin-right: 6px;
+  margin-left: 6px;
+  content: "";
+  pointer-events: none;
+}
+
+.archive-media.is-scroll-media::before {
+  top: 0;
+  margin-bottom: -22px;
+  background: linear-gradient(180deg, rgba(13, 17, 24, 0.94), rgba(13, 17, 24, 0));
+}
+
+.archive-media.is-scroll-media::after {
+  bottom: 0;
+  margin-top: -22px;
+  background: linear-gradient(0deg, rgba(13, 17, 24, 0.94), rgba(13, 17, 24, 0));
+}
+
+.archive-media.is-scroll-media img {
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.archive-media.is-strip-media img {
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.archive-media-pair.is-strip-media {
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr) 96px;
+}
+
+.archive-media-pair.is-strip-media img:not(:first-child) {
+  height: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.archive-media.is-scroll-media::-webkit-scrollbar {
+  width: 7px;
+}
+
+.archive-media.is-scroll-media::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.archive-media.is-scroll-media::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(40, 240, 199, 0.48);
 }
 
 .archive-copy {
@@ -916,6 +991,11 @@ h3 {
 
   .archive-media-pair {
     grid-template-columns: minmax(0, 1fr) 96px;
+  }
+
+  .archive-project-card,
+  .archive-project-card.is-strip-card {
+    grid-column: auto;
   }
 
   .venue-card-large {

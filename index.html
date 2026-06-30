@@ -10,7 +10,7 @@
       content="无名，专注数字媒体空间、沉浸式交互、实时视觉识别、体感互动与多通道展示系统。参与博物馆、展览展示、发布会、剧场、主题公园、赛事等项目。"
     >
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/styles/main.css?v=project-archive-20260630">
+    <link rel="stylesheet" href="/styles/main.css?v=project-archive-wide-20260630">
   </head>
   <body>
     <canvas id="signal-canvas" aria-hidden="true"></canvas>
@@ -901,6 +901,30 @@
         }
       });
 
+      function markArchiveImageModes() {
+        document.querySelectorAll('.archive-project-card').forEach((card) => {
+          const media = card.querySelector('.archive-media');
+          const image = media?.querySelector('img');
+          if (!image) return;
+
+          const updateMode = () => {
+            if (!media || !image.naturalWidth || !image.naturalHeight) return;
+            const heightRatio = image.naturalHeight / image.naturalWidth;
+            const widthRatio = image.naturalWidth / image.naturalHeight;
+
+            media.classList.toggle('is-scroll-media', heightRatio > 1.18 && !media.classList.contains('archive-media-pair'));
+            media.classList.toggle('is-strip-media', widthRatio > 2.8);
+            card.classList.toggle('is-strip-card', widthRatio > 2.8);
+          };
+
+          if (image.complete) {
+            updateMode();
+          } else {
+            image.addEventListener('load', updateMode, { once: true });
+          }
+        });
+      }
+
       const canvas = document.getElementById('signal-canvas');
       const context = canvas.getContext('2d');
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -994,6 +1018,7 @@
 
       resizeCanvas();
       drawNetwork();
+      markArchiveImageModes();
     </script>
   </body>
 </html>
