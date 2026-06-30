@@ -10,7 +10,7 @@
       content="无名，专注数字媒体空间、沉浸式交互、实时视觉识别、体感互动与多通道展示系统。参与博物馆、展览展示、发布会、剧场、主题公园、赛事等项目。"
     >
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/styles/main.css?v=venue-yinyin-20260701">
+    <link rel="stylesheet" href="/styles/main.css?v=archive-collapse-20260701">
   </head>
   <body>
     <canvas id="signal-canvas" aria-hidden="true"></canvas>
@@ -322,9 +322,17 @@
           </div>
           <div class="project-archive-heading">
             <span>Archive</span>
-            <h3>更多旧站项目</h3>
+            <button
+              class="project-archive-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="project-archive"
+            >
+              更多旧站项目
+              <span aria-hidden="true"></span>
+            </button>
           </div>
-          <div class="project-archive" aria-label="更多项目展示">
+          <div id="project-archive" class="project-archive" aria-label="更多项目展示" hidden>
             <article class="archive-project-card">
               <div class="archive-media">
                 <img
@@ -882,6 +890,24 @@
           nav.classList.remove('is-open');
           menuButton.setAttribute('aria-expanded', 'false');
         }
+      });
+
+      const archiveToggle = document.querySelector('.project-archive-toggle');
+      const archivePanel = document.getElementById('project-archive');
+
+      function setArchiveExpanded(isExpanded) {
+        if (!archiveToggle || !archivePanel) return;
+        archiveToggle.setAttribute('aria-expanded', String(isExpanded));
+        archiveToggle.classList.toggle('is-expanded', isExpanded);
+        archivePanel.hidden = !isExpanded;
+
+        if (isExpanded) {
+          requestAnimationFrame(markArchiveImageModes);
+        }
+      }
+
+      archiveToggle?.addEventListener('click', () => {
+        setArchiveExpanded(archiveToggle.getAttribute('aria-expanded') !== 'true');
       });
 
       function markArchiveImageModes() {

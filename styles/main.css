@@ -555,7 +555,7 @@ h3 {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.project-archive-heading span {
+.project-archive-heading > span {
   color: #28f0c7;
   font-size: 12px;
   font-weight: 900;
@@ -563,9 +563,44 @@ h3 {
   text-transform: uppercase;
 }
 
-.project-archive-heading h3 {
-  margin: 0;
+.project-archive-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-self: flex-end;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #d8ecff;
+  cursor: pointer;
+  font: inherit;
   font-size: 26px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.project-archive-toggle span {
+  width: 13px;
+  height: 13px;
+  margin-bottom: 2px;
+  border-right: 2px solid #28f0c7;
+  border-bottom: 2px solid #28f0c7;
+  transform: rotate(45deg);
+  transition: transform 200ms ease;
+}
+
+.project-archive-toggle.is-expanded span {
+  transform: rotate(225deg);
+}
+
+.project-archive-toggle:hover,
+.project-archive-toggle:focus-visible {
+  color: #ffffff;
+}
+
+.project-archive-toggle:focus-visible {
+  outline: 2px solid rgba(40, 240, 199, 0.78);
+  outline-offset: 6px;
 }
 
 .project-archive {
@@ -573,6 +608,10 @@ h3 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   margin-top: 18px;
+}
+
+.project-archive[hidden] {
+  display: none;
 }
 
 .archive-project-card {
