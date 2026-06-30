@@ -440,14 +440,69 @@ h3 {
   background: rgba(13, 18, 26, 0.78);
 }
 
-.project-card img {
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-media {
+  display: grid;
+  gap: 8px;
+  padding: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(40, 240, 199, 0.12), transparent 32%),
+    #0d1118;
+}
+
+.project-primary,
+.project-thumbs img {
   width: 100%;
-  aspect-ratio: 16 / 10;
   object-fit: cover;
   background: #11161e;
 }
 
-.project-card div {
+.project-primary {
+  aspect-ratio: 16 / 9;
+}
+
+.project-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  gap: 8px;
+}
+
+.project-thumbs-single {
+  grid-template-columns: 1fr;
+}
+
+.project-thumbs img {
+  aspect-ratio: 16 / 10;
+}
+
+.project-thumbs-single img {
+  aspect-ratio: 32 / 10;
+}
+
+.project-primary,
+.project-thumbs img {
+  border-radius: 6px;
+  transition: transform 320ms ease, filter 320ms ease;
+}
+
+.project-card:hover .project-primary,
+.project-card:hover .project-thumbs img {
+  filter: saturate(1.08) contrast(1.04);
+}
+
+.project-card:hover .project-primary {
+  transform: translateY(-2px);
+}
+
+.project-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   padding: 20px;
 }
 
@@ -470,6 +525,10 @@ h3 {
 .capability-card p {
   margin-bottom: 0;
   color: #aebeba;
+}
+
+.project-card p {
+  margin-top: auto;
 }
 
 .capability-grid {
