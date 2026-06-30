@@ -842,6 +842,31 @@ h3 {
   transform: scale(1.04);
 }
 
+.venue-card.is-strip-venue {
+  min-height: 0;
+}
+
+.venue-card.is-strip-venue img {
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+  background: #0d1118;
+}
+
+.venue-card.is-strip-venue::after {
+  display: none;
+}
+
+.venue-card.is-strip-venue div {
+  position: static;
+  padding: 16px 18px 18px;
+  background: rgba(13, 18, 26, 0.86);
+}
+
+.venue-card.is-strip-venue:hover img {
+  transform: none;
+}
+
 .venue-more {
   grid-column: 1 / -1;
   display: grid;

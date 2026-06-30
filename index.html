@@ -10,7 +10,7 @@
       content="无名，专注数字媒体空间、沉浸式交互、实时视觉识别、体感互动与多通道展示系统。参与博物馆、展览展示、发布会、剧场、主题公园、赛事等项目。"
     >
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/styles/main.css?v=project-archive-pair-20260701">
+    <link rel="stylesheet" href="/styles/main.css?v=venue-strip-20260701">
   </head>
   <body>
     <canvas id="signal-canvas" aria-hidden="true"></canvas>
@@ -907,6 +907,22 @@
         });
       }
 
+      function markVenueImageModes() {
+        document.querySelectorAll('.venue-card img').forEach((image) => {
+          const card = image.closest('.venue-card');
+          const updateMode = () => {
+            if (!card || !image.naturalWidth || !image.naturalHeight) return;
+            card.classList.toggle('is-strip-venue', image.naturalWidth / image.naturalHeight > 2.25);
+          };
+
+          if (image.complete) {
+            updateMode();
+          } else {
+            image.addEventListener('load', updateMode, { once: true });
+          }
+        });
+      }
+
       const canvas = document.getElementById('signal-canvas');
       const context = canvas.getContext('2d');
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1001,6 +1017,7 @@
       resizeCanvas();
       drawNetwork();
       markArchiveImageModes();
+      markVenueImageModes();
     </script>
   </body>
 </html>
