@@ -684,9 +684,28 @@ h3 {
 
 .archive-media-pair.is-strip-media {
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
 }
 
-.archive-media-pair.is-strip-media img:not(:first-child) {
+.archive-media-pair.is-strip-media img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.archive-media-pair.is-strip-media .is-motion-image {
+  justify-self: center;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: clamp(190px, 22vw, 280px);
+  object-fit: contain;
+}
+
+.archive-media-pair.is-strip-media .is-strip-image {
+  align-self: center;
   object-fit: contain;
 }
 
@@ -1012,6 +1031,10 @@ h3 {
   .archive-project-card,
   .archive-project-card.is-strip-card {
     grid-column: auto;
+  }
+
+  .archive-media-pair.is-strip-media .is-motion-image {
+    max-height: clamp(170px, 32vw, 240px);
   }
 
   .venue-card-large {
