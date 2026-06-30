@@ -416,9 +416,12 @@ h3 {
 }
 
 .timeline-item time {
+  align-self: start;
   color: #f7bc45;
   font-size: 15px;
   font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .timeline-item h3 {
