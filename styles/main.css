@@ -344,6 +344,15 @@ h3 {
   align-items: start;
 }
 
+.venue-layout {
+  grid-template-columns: 1fr;
+  gap: 34px;
+}
+
+.venue-layout .section-heading {
+  max-width: 720px;
+}
+
 .section-heading {
   max-width: 520px;
 }
