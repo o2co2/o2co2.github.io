@@ -837,6 +837,10 @@ h3 {
 }
 
 .venue-card-large {
+  min-height: 260px;
+}
+
+.venue-card-featured {
   grid-column: 1 / -1;
   min-height: 320px;
 }
@@ -1087,6 +1091,11 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .venue-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
   .project-archive-heading {
     align-items: flex-start;
     flex-direction: column;
@@ -1101,13 +1110,38 @@ h3 {
     max-height: clamp(170px, 32vw, 240px);
   }
 
-  .venue-card-large {
+  .venue-card-large,
+  .venue-card-featured {
     grid-column: auto;
     min-height: 230px;
   }
 
+  .venue-card-featured {
+    grid-column: 1 / -1;
+  }
+
   .venue-card {
     min-height: 230px;
+  }
+
+  .venue-card div {
+    right: 10px;
+    bottom: 12px;
+    left: 10px;
+  }
+
+  .venue-card span {
+    margin-bottom: 4px;
+    font-size: 10px;
+  }
+
+  .venue-card h3 {
+    font-size: 15px;
+    line-height: 1.28;
+  }
+
+  .venue-card.is-strip-venue div {
+    padding: 12px;
   }
 
   .capability-card {
