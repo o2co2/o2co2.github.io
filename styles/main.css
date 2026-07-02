@@ -150,9 +150,9 @@ button {
 }
 
 .hero {
-  min-height: 78svh;
+  min-height: clamp(560px, 64svh, 680px);
   padding-top: 138px;
-  padding-bottom: 64px;
+  padding-bottom: 36px;
   overflow: hidden;
 }
 
