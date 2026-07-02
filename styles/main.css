@@ -494,6 +494,12 @@ h3 {
   aspect-ratio: 16 / 10;
 }
 
+.project-card-clock .project-primary,
+.project-card-clock .project-thumbs img {
+  object-fit: contain;
+  background: #050507;
+}
+
 .project-thumbs-single img {
   aspect-ratio: 32 / 10;
 }

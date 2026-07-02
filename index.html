@@ -10,7 +10,7 @@
       content="无名，专注数字媒体空间、沉浸式交互、实时视觉识别、体感互动与多通道展示系统。参与博物馆、展览展示、发布会、剧场、主题公园、赛事等项目。"
     >
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/styles/main.css?v=project-clock-interaction-20260702">
+    <link rel="stylesheet" href="/styles/main.css?v=project-clock-black-motion-20260702">
   </head>
   <body>
     <canvas id="signal-canvas" aria-hidden="true"></canvas>
@@ -152,7 +152,7 @@
             <p class="section-note">保留旧站项目图集的多张现场图与动图，让每个项目都能看到更完整的交互状态。</p>
           </div>
           <div class="project-grid">
-            <article class="project-card">
+            <article class="project-card project-card-clock">
               <div class="project-media" aria-label="钟-时间流逝交互装置项目图片">
                 <img
                   class="project-primary"
@@ -1158,9 +1158,11 @@
       const canvas = document.getElementById('signal-canvas');
       const context = canvas.getContext('2d');
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const motionFactor = prefersReducedMotion ? 0.32 : 1;
       let width = 0;
       let height = 0;
       let particles = [];
+      let animationFrameId = 0;
       const pointer = { x: 0, y: 0, active: false };
 
       function resizeCanvas() {
@@ -1220,22 +1222,26 @@
           context.arc(a.x, a.y, a.size, 0, Math.PI * 2);
           context.fill();
 
-          if (!prefersReducedMotion) {
-            a.x += a.vx;
-            a.y += a.vy;
-            if (a.x < 0 || a.x > width) a.vx *= -1;
-            if (a.y < 0 || a.y > height) a.vy *= -1;
-          }
+          a.x += a.vx * motionFactor;
+          a.y += a.vy * motionFactor;
+          if (a.x < 0 || a.x > width) a.vx *= -1;
+          if (a.y < 0 || a.y > height) a.vy *= -1;
         }
 
-        if (!prefersReducedMotion) {
-          requestAnimationFrame(drawNetwork);
-        }
+        animationFrameId = requestAnimationFrame(drawNetwork);
+      }
+
+      function startNetwork() {
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        animationFrameId = requestAnimationFrame(drawNetwork);
       }
 
       window.addEventListener('resize', () => {
         resizeCanvas();
-        drawNetwork();
+        startNetwork();
+      });
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) startNetwork();
       });
       window.addEventListener('pointermove', (event) => {
         pointer.x = event.clientX;
@@ -1247,7 +1253,7 @@
       });
 
       resizeCanvas();
-      drawNetwork();
+      startNetwork();
       markArchiveImageModes();
       markVenueImageModes();
     </script>
