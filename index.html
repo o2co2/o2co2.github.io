@@ -10,7 +10,7 @@
       content="无名，专注数字媒体空间、沉浸式交互、实时视觉识别、体感互动与多通道展示系统。参与博物馆、展览展示、发布会、剧场、主题公园、赛事等项目。"
     >
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/styles/main.css?v=profile-after-capabilities-20260702">
+    <link rel="stylesheet" href="/styles/main.css?v=particle-speed-20260702">
   </head>
   <body>
     <canvas id="signal-canvas" aria-hidden="true"></canvas>
@@ -1158,7 +1158,7 @@
       const canvas = document.getElementById('signal-canvas');
       const context = canvas.getContext('2d');
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const motionFactor = prefersReducedMotion ? 0.32 : 1;
+      const motionFactor = prefersReducedMotion ? 0.72 : 1.35;
       let width = 0;
       let height = 0;
       let particles = [];
@@ -1178,8 +1178,8 @@
         particles = Array.from({ length: count }, (_, index) => ({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.32,
-          vy: (Math.random() - 0.5) * 0.32,
+          vx: (Math.random() - 0.5) * 0.42,
+          vy: (Math.random() - 0.5) * 0.42,
           size: index % 6 === 0 ? 2.2 : 1.2
         }));
       }
