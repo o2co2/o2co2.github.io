@@ -997,8 +997,7 @@ h3 {
   }
 
   .identity-panel {
-    grid-template-columns: 124px minmax(0, 1fr);
-    max-width: 520px;
+    display: none;
   }
 
   .project-grid,
@@ -1072,10 +1071,6 @@ h3 {
   .hero-text,
   .profile-copy {
     font-size: 16px;
-  }
-
-  .identity-panel {
-    display: none;
   }
 
   .timeline::before,
